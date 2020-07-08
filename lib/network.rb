@@ -31,6 +31,18 @@ attr_reader :name,
      #     character.salary > 500_000 && character.name == character.name.upcase
      #    end
      #  end.flatten
+  end
+
+  def shows_by_actor
+    characters_of_all_shows = @shows.group_by do |show|
+      show.characters
     end
+    characters_of_all_shows.flat_map do |x, y|
+      x.map do |xs|
+        xs.actor
+      end
+      # require "pry"; binding.pry
+    end
+  end
 
 end

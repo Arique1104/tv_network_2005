@@ -15,9 +15,10 @@ attr_reader :name,
   end
 
   def highest_paid_actor
-    @characters.max_by do |character|
+    result = @characters.max_by do |character|
       character.salary
-    end.actor
+    end
+    result.actor
   end
 
   def actors
